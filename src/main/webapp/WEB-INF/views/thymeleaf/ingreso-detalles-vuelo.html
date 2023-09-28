@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Detalles del Vuelo</title>
+
+    <!-- Boostrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+</nav>
+
+<main role="main" class="container">
+    <form action="#" method="POST">
+        <label for="origen">Origen: </label>
+        <select name="origen" id="origen">
+            <option value="eze">Ezeiza</option>
+            <option value="aep">Aeroparque</option>
+        </select>
+        <label for="destino">Destino: </label>
+        <select name="destino" id="destino">
+            <option value="eze">Ezeiza</option>
+            <option value="aep">Aeroparque</option>
+        </select>
+        <label for="ida">Ida: </label>
+        <input type="radio" name="ida-o-vuelta" id="ida">
+        <label for="vuelta">Vuelta: </label>
+        <input type="radio" name="ida-o-vuelta" id="vuelta">
+        <label for="fecha">Fecha: </label>
+        <input type="date" name="fecha" id="fecha">
+    </form>
+</main>
+<!-- /.container -->
+
+<!-- Boostrap core js -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+</body>
+</html>
