@@ -1,8 +1,10 @@
 package com.tallerwebi.presentacion;
 
 import com.tallerwebi.dominio.ServicioLogin;
+import com.tallerwebi.dominio.ServicioLoginImpl;
 import com.tallerwebi.dominio.Usuario;
 import com.tallerwebi.dominio.excepcion.UsuarioExistente;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 public class ControladorLogin {
 
     private ServicioLogin servicioLogin;
+    private ServicioLoginImpl servicioLoginImpl;
+
 
     @Autowired
     public ControladorLogin(ServicioLogin servicioLogin){
@@ -46,7 +50,7 @@ public class ControladorLogin {
     }
 
     @RequestMapping(path = "/registrarme", method = RequestMethod.POST)
-    public ModelAndView registrarme(@ModelAttribute("usuario") Usuario usuario) {
+    public ModelAndView registrarme(@ModelAttribute("usuario") Usuario usuario) throws javax.mail.MessagingException, MessagingException {
         ModelMap model = new ModelMap();
         try{
             servicioLogin.registrar(usuario);
@@ -57,6 +61,7 @@ public class ControladorLogin {
             model.put("error", "Error al registrar el nuevo usuario");
             return new ModelAndView("nuevo-usuario", model);
         }
+        servicioLogin.enviarCorreoConfirmacion(usuario.getEmail());
         return new ModelAndView("redirect:/login");
     }
 
