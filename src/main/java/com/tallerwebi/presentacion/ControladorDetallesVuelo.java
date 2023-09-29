@@ -2,6 +2,7 @@ package com.tallerwebi.presentacion;
 
 import com.tallerwebi.dominio.vuelos.ServicioVuelo;
 import com.tallerwebi.dominio.vuelos.Vuelo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,12 @@ import java.util.List;
 public class ControladorDetallesVuelo {
 
     private ServicioVuelo servicioVuelo;
+
+    @Autowired
+    public ControladorDetallesVuelo(ServicioVuelo servicioVuelo) {
+        this.servicioVuelo = servicioVuelo;
+    }
+
     @RequestMapping(path = "/ingreso-detalles-vuelo", method = RequestMethod.GET)
     public ModelAndView ingresarDetallesVuelo() {
         return new ModelAndView("ingreso-detalles-vuelo");
