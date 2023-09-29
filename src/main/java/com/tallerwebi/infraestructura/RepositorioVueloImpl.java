@@ -13,11 +13,9 @@ public class RepositorioVueloImpl implements RepositorioVuelo {
     @Override
     public List<Vuelo> obtenerVuelos() {
         List<Vuelo> vuelos = new ArrayList<>();
-        vuelos.add(new Vuelo(1L));
-        vuelos.add(new Vuelo(2L));
-        vuelos.add(new Vuelo(3L));
-        vuelos.add(new Vuelo(4L));
-        vuelos.add(new Vuelo(5L));
+        for(int i=0; i<5;i++){
+            vuelos.add(new Vuelo(i+1));
+        }
         return vuelos;
     }
 

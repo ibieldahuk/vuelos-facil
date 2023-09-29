@@ -17,4 +17,14 @@ public class ControlaorDetallesVueloTest {
         //validación
         assertThat(modelAndView.getViewName(), is("ingreso-detalles-vuelo"));
     }
+
+    @Test
+    public void alIngresarALaPaginaDebeDevolverLaVistaCorrectaV2() {
+        //preparación
+        ControladorDetallesVuelo controladorDetallesVuelo = new ControladorDetallesVuelo();
+        //ejecución
+        ModelAndView modelAndView = controladorDetallesVuelo.listarVuelos();
+        //validación
+        assertThat(modelAndView.getViewName(), is("listar-vuelos"));
+    }
 }

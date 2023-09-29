@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Vuelos Fácil</title>
+
+
+    <!-- Boostrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #5a2fcb;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Home</a>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn " style="background-color:#8554FF; color:#fff;" type="submit">Buscar</button>
+        </form>
+        <form class="justify-content-end">
+            <a href="login.html" class="btn me-2" style="background-color:#CCC02F; color:#fff;">Iniciar Sesion</a>
+            <a href="nuevo-usuario.html" class="btn btn-sm" style="background-color:#8554FF; color:#fff;">Registrarse</a>
+        </form>
+    </div>
+</nav>
+
+<main role="main" class="container">
+
+    <div class="container-fluid">
+        <table>
+            <thead>
+            <tr>
+                <th>Nombre del vuelo</th>
+                <th>Origen</th>
+                <th>Destino</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="vuelo : ${vuelos}">
+                <td th:text="${vuelo.id}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</main>
+<!-- /.container -->
+
+<!-- Boostrap core js -->
+<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+</body>
+</html>
